@@ -26,5 +26,159 @@
         "info": "16 x 16px .png required"
       }
     ]
+  },
+  {
+    "name": "Product Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "select",
+        "id": "product_item_image_ratio",
+        "label": "Product item image ratio",
+        "info": "It's highly recommended that [all product photos should be the same size.](https:\/\/help.shopify.com\/manual\/productivity-tools\/image-editor#image-aspect-ratio)",
+        "options": [
+          {
+            "value": "1",
+            "label": "Square 1:1"
+          },
+          {
+            "value": "3\/4",
+            "label": "Portrait 3:4"
+          },
+          {
+            "value": "2\/3",
+            "label": "Portrait 2:3"
+          },
+          {
+            "value": "4\/3",
+            "label": "Landscape 4:3"
+          },
+          {
+            "value": "3\/2",
+            "label": "Landscape 3:2"
+          }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "header",
+        "content": "Swatches"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_swatch_color",
+        "label": "Color swatch",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_swatch_size",
+        "label": "Size swatch",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_swatch_color_advanced",
+        "label": "Advanced color swatch",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Reviews"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_review",
+        "label": "Enabled"
+      },
+      {
+        "type": "header",
+        "content": "Wishlist"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_wishlist",
+        "label": "Enabled"
+      },
+      {
+        "type": "page",
+        "id": "wishlist_page",
+        "label": "Wishlist Page"
+      },
+      {
+        "type": "header",
+        "content": "Compare"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_compare",
+        "label": "Enabled?"
+      },
+      {
+        "type": "header",
+        "content": "Sale label"
+      },
+      {
+        "type": "select",
+        "id": "product_sale_badge",
+        "label": "Type",
+        "default": "text",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "text",
+            "label": "With 'Sale' text on"
+          },
+          {
+            "value": "percent",
+            "label": "Percent"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Size Guide"
+      },
+      {
+        "type": "page",
+        "id": "sizechart",
+        "label": "Size Chart page content"
+      },
+      {
+        "type": "header",
+        "content": "Shipping calculator"
+      },
+      {
+        "type": "checkbox",
+        "id": "shipping_calculator_enable",
+        "label": "Enable shipping calculator",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_default_country",
+        "label": "Default country selection",
+        "info": "If your customer is logged-in, the country in his default shipping address will be selected. If you are not sure about the  spelling to use here, refer to the first checkout page.",
+        "default": "United States"
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_submit_button_label",
+        "label": "Submit button label",
+        "default": "Calculate shipping"
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_submit_button_label_disabled",
+        "label": "Submit button label when calculating",
+        "default": "Calculating..."
+      }
+    ]
   }
 ]

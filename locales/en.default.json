@@ -11,15 +11,25 @@
      //   "new_window": "Opens in a new window.",
      //   "external": "Opens external website.",
      //   "new_window_and_external": "Opens external website in a new window."
-      //},
-      
-      
+      //},     
       //"unit_price_separator": "per",
       "error": "Error"
     },
     "meta": {
       "tags": "Tagged \"{{ tags }}\"",
       "page": "Page {{ page }}"
+    }
+  },
+  "cart":{
+    "general":{
+      "title": "Shopping cart",     
+      "remove": "Remove",
+      "no_items": "Your shopping cart is empty!",
+      "start_shopping": "Start shopping",    
+      "proceed_checkout": "PROCEED TO CHECK OUT",  
+      "heading_total": "Total",
+      "heading_subtotal": "Subtotal",
+      "heading_shipping": "Shipping"
     }
   }
 }

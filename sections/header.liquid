@@ -2,124 +2,114 @@
     <div class="header">
         <div class="header__container center center--wide">
 
-            <a href="#" class="header__logo">
-                <div class="brand">Dany-May</div>
-                <div class="slogan">
-                    BOUTIQUE
-                    <span></span>
-                </div>
-            </a>
+            <!-- Logo -->
+            {% if section.settings.header_logo != blank %}
+                <a href="{{ shop.url }}" class="header__logo">
+                    <img src="{{ section.settings.header_logo | img_url: 'master' }}" alt="logo" width="163" height="39"/>
+                </a>			
+            {% else %}                
+                {% if section.settings.header_logo__svg != blank %}        
+                    <a href="{{ shop.url }}" class="header__logo">
+                    {{ section.settings.header_logo__svg }}
+                    </a>        
+                {% else %}                
+                    <a href="{{ shop.url }}" class="header__logo">
+                    <div class="brand">{{ section.settings.header_logo_brand}}</div>
+                    <div class="slogan">
+                        {{ section.settings.header_logo_slogan}}
+                        <span></span>
+                    </div>
+                    </a>        
+                {% endif %}
+            {% endif %}
 
             <div class="header__menu">
                 <div class="dismiss" data-dismiss="menu"></div>
 
-                <!-- Mobile only -->
-                <div class="menu__header">
-                    <div class="dismiss" data-dismiss="menu"></div>
-                    <span class="menu__header__title">Menu</span>
-                </div>
-
-                <nav class="menu__container">
-                    <div class="menu">
-                        <ul class="level-1">
-                            <li class="menu-item"><a href="#">Home</a></li>
-                            <li class="menu-item has-children">
-                                <a href="#" class="has-submenu">Home & Living [+]</a>
-                                <div class="megamenu">
-                                    <div class="megamenu__container">
-                                        <div class="megamenu__content">
-
-                                            <ul class="level-2 mega-submenu submenu">
-                                                <li class="menu-item has-children">
-                                                    <a href="#" class="menu__heading has-submenu">Stoer & Sober [+]</a>
-
-                                                    <ul class="level-3 submenu">
-                                                        <li class="menu-item"><a href="#" class=" ">Houten accessoires</a></li>
-                                                        <li class="menu-item"><a href="#" class=" ">Metalen accessoires</a></li>
-                                                    </ul>
-
-                                                </li>
-                                                <li class="menu-item has-children">
-                                                    <a href="#" class="menu__heading has-submenu">Hotel Chiq [+]</a>
-                                                    <ul class="level-3 submenu">
-                                                        <li class="menu-item "><a href="#" class=" ">Lampen</a></li>
-                                                        <li class="menu-item "><a href="#" class=" ">Foto lijsten</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item has-children">
-                                                    <a href="#" class="menu__heading has-submenu">Modern [+]</a>
-                                                    <ul class="level-3 submenu">
-                                                        <li class="menu-item "><a href="#" class=" ">Beeldjes</a></li>
-                                                        <li class="menu-item "><a href="#" class=" ">Kussens</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-item has-children">
-                                <a href="#" class="has-submenu">Dameskleding [+]</a>
-                                <div class="megamenu">
-                                    <div class="megamenu__container">
-                                        <div class="megamenu__content">
-                                            <ul class="level-2 submenu">
-                                                <li class="menu-item"><a href="#" class=" ">Jurken</a></li>
-                                                <li class="menu-item"><a href="#" class=" ">Broeken</a></li>
-                                                <li class="menu-item"><a href="#" class="  ">T-Shirts</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-item has-children">
-                                <a href="#" class="has-submenu">Accessoires [+]</a>
-                                <div class="megamenu">
-                                    <div class="megamenu__container">
-                                        <div class="megamenu__content">
-                                            <ul class="level-2 submenu">
-                                                <li class="menu-item"><a href="#" class=" ">Riemen</a></li>
-                                                <li class="menu-item"><a href="#" class=" ">Tassen</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-item"><a href="#">Sale</a></li>
-                            <li class="menu-item"><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </nav>
-
-                <!-- Mobile only -->
-                <div class="menu__footer">acties</div>
-
+                <!-- Main Menu -->
+                {% if section.settings.main_menu %}
+                {% include 'header-menu' %}
+                {% endif %}
+                
                 <div class="header__actions">
+
+                    {% if section.settings.header_currency %}
+                        <div class="header__currency currency">
+                            <div class="btn-group" id="form-currency">
+                    
+                            <a id="dropdownCurrency" href="#currency" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" >
+                                <span class="selected-currency">{{ cart.currency.iso_code | upcase }}</span>
+                            </a>
+                            <ul name="currencies" class="dropdown-menu" aria-labelledby="dropdownCurrency">
+                                {%- for currency in shop.enabled_currencies -%}                                
+                                    <li>
+                                        <a href="{{ shop.url }}?currency={{ currency.iso_code }}"  class="currency-select dropdown-item {% if code == shop.currency %}item-selected{% endif %}">{{ currency.iso_code | upcase }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            </div>
+                        </div>                   
+                    {% endif %}
+
+                    {% if section.settings.header_language %}
+                        {%- if shop.published_locales.size > 1 -%}
+                            {%- form 'localization' -%}
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#language role="button" id="dropdownLanguage" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{ form.current_locale.iso_code | append: '.png' | asset_url }}" alt="USA Flag" class="dropdown-image"/>{{ form.current_locale.endonym_name }}
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
+                                        {%- for locale in form.available_locales -%}
+                                            <li>
+                                                <a href="{{ locale.root_url }}" class="dropdown-item">
+                                                    <img src="{{ locale.iso_code | append: '.png' | asset_url }}" alt="{{ locale.iso_code }} Flag" class="dropdown-image"/>{{ locale.endonym_name }}
+                                                </a>
+                                            </li>
+                                        {%- endfor -%}
+                                    </ul>
+                                </div>
+                            {%- endform -%}
+                        {%- endif -%}
+                    {% endif %}
+
+
                     <div class="header__action" data-toggle="search-panel">
                         <svg class="svg-icon">
                             <use xlink:href="#svg-search"></use>
                         </svg>
                     </div>
-                    <div class="header__action" data-trigger="user">
-                        <svg class="svg-icon">
-                            <use xlink:href="#svg-user"></use>
-                        </svg>
-                    </div>
-                    <div class="header__action" data-trigger="favorites">
-                        <svg class="svg-icon">
-                            <use xlink:href="#svg-favorites"></use>
-                        </svg>
-                    </div>
+
+                    {% if shop.customer_accounts_enabled %}
+                        {% if customer %}
+                            <a class="header__action" href="{{ routes.account_url }}" data-toggle="login-modal">
+                                <svg class="svg-icon">
+                                    <use xlink:href="#svg-user"></use>
+                                </svg>
+                            </a>
+                        {% else %}
+                            <a class="header__action" href="{{ routes.account_login_url }}" data-toggle="login-modal">
+                                <svg class="svg-icon">
+                                    <use xlink:href="#svg-user"></use>
+                                </svg>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if settings.enable_wishlist %}
+                        <a class="header__action" href="{{ pages[settings.wishlist_page].url }}">
+                            <svg class="svg-icon">
+                                <use xlink:href="#svg-favorites"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+
                 </div>
             </div>
 
             <div class="header__actions header__actions--mobile">
-                <div class="header__action" data-trigger="basket">
-                    <svg class="svg-icon">
-                        <use xlink:href="#svg-cart"></use>
-                    </svg>
-                    <span class="basket__count">24</span>
-                </div>
+                
+                {% include 'header-cart'%}
+
                 <div class="menu-burger">
                     <svg data-action="sidebar" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
                         <line stroke="#222" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="4" y1="9" x2="28" y2="9"></line>
@@ -133,3 +123,67 @@
     </div>
     <div class="header__overlay"></div>
 </header>
+
+
+{% schema %}
+{
+	"name": "Header",
+	"settings": [
+		{
+            "type": "header",
+            "content": "Header elements"
+        },		
+        {
+            "type": "image_picker",
+            "id": "header_logo",
+            "label": "Logo"
+        },
+        {
+          "type": "textarea",
+          "id": "header_logo_svg",
+          "label": "SVG icon / HTML"
+        },
+        {
+            "type": "text",
+            "id": "header_logo_brand",
+            "label": "Text",
+            "default": "Brand name"
+        },
+        {
+            "type": "text",
+            "id": "header_logo_slogan",
+            "label": "Text",
+            "default": "Brand slogan"
+        },
+        {
+            "type": "checkbox",
+            "id": "main_menu",
+            "label": "Enable main menu",
+            "default": true
+        },
+        {
+            "type": "link_list",
+            "id": "main_menu_linklist",
+            "label": "Main menu"
+        },
+        {
+            "type": "checkbox",
+            "id": "header_currency",
+            "label": "Enable currency switcher",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "header_language",
+            "label": "Enable language switcher",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "header_wishlist",
+            "label": "Enable wishlist",
+            "default": true
+        }
+   ]
+}
+{% endschema %}
