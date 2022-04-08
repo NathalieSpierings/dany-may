@@ -1,0 +1,72 @@
+{% comment %}
+  This is used to create CSS custom variables with Liquid references
+  The file variables.scss is referring these CSS custom variables as Sass variables
+  to use throughout the stylesheet
+{% endcomment %}
+
+{% style %}
+
+
+:root{
+
+}
+
+
+@font-face {
+    font-family: 'Neutra Text';
+    src: url({{ "NeutraText-LightAlt.woff2" | asset_url }}) format('woff2'), url({{ "NeutraText-LightAlt.woff" | asset_url }}) format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Neutra Text';
+    src: url({{ "NeutraText-BookAlt.woff2" | asset_url }}) format('woff2'), url({{ "NeutraText-BookAlt.woff" | asset_url }}) format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Neutra Text';
+    src: url({{ "NeutraTextTF-Demi.woff2" | asset_url }}) format('woff2'), url({{ "NeutraTextTF-Demi.woff" | asset_url }}) format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neutra Text';
+    src: url({{ "NeutraText-Bold.woff2" | asset_url }}) format('woff2'), url({{ "NeutraText-Bold.woff" | asset_url }}) format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+	font-family: 'Albra Sans';
+	src: url({{ "albra-sans_light.woff2" | asset_url }}) format('woff2'), url({{ "albra-sans_light.woff" | asset_url }}) format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Albra Sans';
+	src: url({{ "albra-sans_regular.woff2" | asset_url }}) format('woff2'), url({{ "albra-sans_regular.woff" | asset_url }}) format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Albra Sans';
+	src: url({{ "albra-sans_medium.woff2" | asset_url }}) format('woff2'), url({{ "albra-sans_medium.woff" | asset_url }}) format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+{% endstyle %}
