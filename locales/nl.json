@@ -13,18 +13,18 @@
     }
   },
   "footer": {
-    "payment": "Payment methods"
+    "payment": "Betaal methodes"
   },
   "cart": {
     "general": {
-      "title": "Shopping cart",
-      "remove": "Remove",
+      "title": "Winkelwagen",
+      "remove": "Verwijderne",
       "no_items": "Your shopping cart is empty!",
       "start_shopping": "Start shopping",
       "proceed_checkout": "PROCEED TO CHECK OUT",
-      "heading_total": "Total",
-      "heading_subtotal": "Subtotal",
-      "heading_shipping": "Shipping"
+      "heading_total": "Totaal",
+      "heading_subtotal": "Subtotaal",
+      "heading_shipping": "Verzenden"
     }
   }
 }
