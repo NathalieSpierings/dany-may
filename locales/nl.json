@@ -12,6 +12,9 @@
       "page": "Page {{ page }}"
     }
   },
+  "footer": {
+    "payment": "Payment methods"
+  },
   "cart": {
     "general": {
       "title": "Shopping cart",
