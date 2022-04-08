@@ -1,5 +1,31 @@
 {
-    "current":{
-        "favicon_enable": true
-    }
+  "current": {
+    "favicon_enable": true,
+    "enable_wishlist": true,
+    "wishlist_page": "wishlist",
+    "enable_compare": true,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "header_logo_svg": "",
+          "header_logo_brand": "Brand name",
+          "header_logo_slogan": "Brand slogan",
+          "main_menu": true,
+          "main_menu_linklist": "",
+          "header_currency": true,
+          "header_language": true,
+          "header_wishlist": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
 }
