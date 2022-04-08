@@ -1236,6 +1236,164 @@ header {
 	}
 }
 
+
+/* Footer
+*********************************/
+.footer{
+	--footerBorderColor: var(--borderColor);
+	
+	a{
+		position: relative;		
+		padding-right:.5rem;
+		transition: all .1s ease;
+		
+		&::after {
+					display: block;
+					content: '';
+					width: 0;
+					height: 1px;
+					background: currentcolor;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					transition: all .3s ease;
+				}
+		&:hover::after {
+			width: 100%;
+		}
+	}
+	
+	&--dark{
+		--footerBorderColor: rgba(var(--whiteRgb), .04);
+		
+		background:var(--primaryColor);
+		color: rgba(var(--whiteRgb), .5);
+		
+		a{
+			color: rgba(var(--whiteRgb), .5);
+			&::after {
+				background: var(--white);
+			}
+			&:hover{
+				color: var(--white);
+			}
+		}
+	}
+	&--light{
+		background: #f3f3f3;
+		color: var(--foregroundColor);
+		
+		a{
+			color: var(--foregroundColor);
+			&::after {
+				background: var(--black);
+			}
+			&:hover{
+				color: var(--black);
+			}
+		}
+		
+	}
+		
+	&__top{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
+		transition: all 1s;
+	}
+	
+	&__block{	
+		padding:3rem 0;
+		
+		&__heading{
+			font-family:var(--font-stack-second);
+			letter-spacing: .1em;
+			text-transform: uppercase;
+			color: var(--secondaryColor);
+			margin-bottom: 2rem;
+			margin-top: 0;
+		}
+		
+		img{
+			max-width: min(100%, 100px);
+		}
+	}
+	
+	&__nav{
+		list-style-type:none;
+		padding:0;
+		margin:0;
+		
+		> li{
+			display: flex;
+			white-space: nowrap;
+			font-size: .875rem;
+			line-height: 1.2857142857;
+			padding-bottom: .625rem;
+			font-weight: 400;
+			letter-spacing: .04em;	
+			
+			> a{
+				display: block;
+			}
+		}
+	}
+	
+	&__bottom{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: 1.5rem;
+		
+		@include MQ-max(S){
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	&__lang, 
+	&__disclaimers,
+	&__payment {
+		padding-top: 1.5rem;
+		display: flex;
+		align-items: center;
+		
+		ul{
+			display: flex;
+			flex-wrap: wrap;		
+			justify-content: center;
+			
+			@include MQ-min(M){
+				justify-content: flex-end;
+			}
+			
+			> li{
+				display: flex;
+				align-items:center;
+				padding-left: 0.5rem;
+			}
+
+		}
+	}
+	
+
+	&__disclaimers {
+		flex-direction: column;	
+		@include MQ-max(S){
+			order: 3;
+		}
+		&__content{
+			font-size:.825rem;
+			margin: .1875rem auto;
+			p{
+				text-align: center;
+				line-height:2.5;
+			}
+		}
+	}
+
+}
+
 /* Buttons
 *********************************/
 
