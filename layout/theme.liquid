@@ -40,9 +40,8 @@
 
         <main class="page">
 
-            <header>
-                header
-            </header>
+          <!-- Header -->
+          {% section 'header' %}
 
             <div class="page__container">
                 <div class="page__content">
@@ -51,7 +50,8 @@
                             {{ content_for_layout }}
                         </div>
 
-                        <footer>footer</footer>
+                         <!-- Footer -->
+                        {% section 'footer' %}
 
                     </div>
                 </div>
