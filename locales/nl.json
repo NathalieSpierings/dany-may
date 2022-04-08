@@ -1,0 +1,27 @@
+{
+  "general": {
+    "general": "Algemeen",
+    "backToTop": "Terug naar boven",
+    "accessibility": {
+      "refresh_page": "Choosing a selection results in a full page refresh.",
+      "selection_help": "Press the space key then arrow keys to make a selection.",
+      "error": "Error"
+    },
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Shopping cart",
+      "remove": "Remove",
+      "no_items": "Your shopping cart is empty!",
+      "start_shopping": "Start shopping",
+      "proceed_checkout": "PROCEED TO CHECK OUT",
+      "heading_total": "Total",
+      "heading_subtotal": "Subtotal",
+      "heading_shipping": "Shipping"
+    }
+  }
+}
