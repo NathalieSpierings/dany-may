@@ -27,9 +27,23 @@
                 <div class="dismiss" data-dismiss="menu"></div>
 
                 <!-- Main Menu -->
+
+                <!-- Mobile only -->
+                <div class="menu__header">
+                    <div class="dismiss" data-dismiss="menu"></div>
+                    <span class="menu__header__title">Menu</span>
+                </div>
+
+                
                 {% if section.settings.main_menu %}
                 {% include 'header-menu' %}
                 {% endif %}
+
+                  <!-- Mobile only -->
+                <div class="menu__footer">
+                    acties
+                </div>
+                <!-- End Main Menu -->
                 
                 <div class="header__actions">
 
@@ -107,7 +121,7 @@
             </div>
 
             <div class="header__actions header__actions--mobile">
-                
+
                 {% include 'header-cart'%}
 
                 <div class="menu-burger">
