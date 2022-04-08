@@ -1,7 +1,7 @@
 {
   "general": {
-    "general": "Algemeen",
-    "backToTop": "Terug naar boven",
+    "general": "General",
+    "backToTop": "Back to top",
     "accessibility": {
       "refresh_page": "Choosing a selection results in a full page refresh.",
       "selection_help": "Press the space key then arrow keys to make a selection.",
