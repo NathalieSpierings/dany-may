@@ -1,16 +1,16 @@
 @charset "UTF-8";
 
 // Mixins
-@import "components/mixins";
+@import "mixins";
 
 // Variables;
-@import "components/variables";
-
+@import "variables";
 
 // components
-@import "components/typography";
-@import "components/global";
-@import "components/layout";
+@import "typography";
+@import "global";
+@import "layout";
+
 
 
 /* Header
@@ -398,6 +398,7 @@ header {
 			}
 		}
 	}
+
 	a.has-submenu {
 		@include MQ-max(M) {
 			&::after {
@@ -760,7 +761,7 @@ header {
 			letter-spacing: 0.1em;
 			text-transform: uppercase;
 			font-family: var(--font-stack-second);
-			color: #111;
+			color: var(--primaryColor);
 			margin-top: 0;
 			line-height: 1.2;
 			margin-bottom: 1em;
@@ -779,7 +780,7 @@ header {
 		.search-panel__input {
 			height: 44px;
 			background-color: #fff;
-			color: #111;
+			color: var(--primaryColor);
 			border: none;
 			border-bottom: 2px solid #e8e8e8;
 			line-height: 42px;
@@ -809,7 +810,7 @@ header {
 			svg {
 				width: 20px;
 				height: 20px;
-				fill: #111;
+				fill: var(--primaryColor);
 			}
 		}
 	}
@@ -911,11 +912,7 @@ header {
 			color: var(--secondaryColor);
 			margin-bottom: 2rem;
 			margin-top: 0;
-		}
-		
-		img{
-			max-width: min(100%, 100px);
-		}
+		}		
 	}
 	
 	&__nav{
@@ -1341,7 +1338,7 @@ header {
 			padding-bottom: 0.5rem;
 
 			&::after {
-				background: #1e1c1c;
+				background: var(--primaryColor);
 				content: "";
 				position: absolute;
 				bottom: 1px;
@@ -1356,7 +1353,7 @@ header {
 				height: 14px;
 				position: absolute;
 				right: -3px;
-				top: calc(50% - 7px);
+				top: 50%;
 				transform-origin: 50% 50%;
 				transform: rotate(-90deg);
 			}
