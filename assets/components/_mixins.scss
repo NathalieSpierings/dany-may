@@ -1,0 +1,98 @@
+// Media breakpoints
+$grid-breakpoints: (XS: 0, S: 576px, M: 768px, L: 992px, XL: 1200px) !default;
+
+@function breakpoint-next(	$name,	$breakpoints: $grid-breakpoints,	$breakpoint-names: map-keys($breakpoints)){
+	$n: index($breakpoint-names, $name);
+	@return if(
+		$n != null and $n < length($breakpoint-names),
+		nth($breakpoint-names, $n + 1),
+		null
+	);
+}
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+	$min: map-get($breakpoints, $name);
+	@return if($min != 0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+	$next: breakpoint-next($name, $breakpoints);
+	@return if($next, breakpoint-min($next, $breakpoints) - 0.02, null);
+}
+
+@mixin MQ-min($name, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+	@if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+@mixin MQ-max($name, $breakpoints: $grid-breakpoints) {
+	$max: breakpoint-max($name, $breakpoints);
+	@if $max {
+		@media (max-width: $max) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+@mixin MQ-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($lower, $breakpoints);
+	$max: breakpoint-max($upper, $breakpoints);
+
+	@if $min != null and $max != null {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	} @else if $max == null {
+		@include MQ-min($lower, $breakpoints) {
+			@content;
+		}
+	} @else if $min == null {
+		@include MQ-max($upper, $breakpoints) {
+			@content;
+		}
+	}
+}
+
+// Determine the forecolor for a given background color
+@function contra-color($color) {
+	@if (lightness($color) > 75) {
+		@return #000;
+	} @else {
+		@return #fff;
+	}
+}
+
+// Define the colors
+@mixin defineColor(	$color-name,	$value,	$includeHsl: "false",	$includeContraColor: "false") {
+	#{$color-name}: $value;
+
+	// Rgb
+	$red: red($value);
+	$green: green($value);
+	$blue: blue($value);
+
+	#{$color-name}Rgb: $red, $green, $blue;
+
+	// Hsl
+	$color-h: round(hue($value));
+	$color-s: round(saturation($value));
+	$color-l: round(lightness($value));
+
+	@if ($includeHsl == "true") {
+		#{$color-name}H: #{$color-h};
+		#{$color-name}S: #{$color-s};
+		#{$color-name}L: #{$color-l};
+	}
+
+	@if ($includeContraColor == "true") {
+		#{$color-name}Contra: #{contra-color($value)};
+	}
+}

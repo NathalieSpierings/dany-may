@@ -1,0 +1,22 @@
+
+:root {
+	--font-stack-first: "Open Sans", sans-serif;
+	--font-stack-second: "Neutra Text Alt", sans-serif;
+	--font-stack-third: "Albra Sans", sans-serif;
+
+	--font-stack-ttcommons: "tt-commons", sans-serif;
+
+	@include defineColor(--white, #ffffff);
+	@include defineColor(--black, #000000);
+
+	@include defineColor(--greyShade1, #c5c5c5); // border
+	@include defineColor(--greyShade2, #676767); // icon
+	@include defineColor(--greyShade3, #979797); // Mute
+
+	@include defineColor(--primaryColor, #262626, "true", "true");
+	@include defineColor(--secondaryColor, #ad906f, "true", "true");
+
+	--foregroundColor: #3d3f4c;
+	--borderColor: #dee2e6;
+	--muteColor: var(--greyShade3);
+}
