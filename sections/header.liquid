@@ -22,6 +22,9 @@
                     </a>        
                 {% endif %}
             {% endif %}
+            <!-- End logo -->
+
+
 
             <div class="header__menu">
                 <div class="dismiss" data-dismiss="menu"></div>
@@ -39,36 +42,32 @@
                 {% include 'header-menu' %}
                 {% endif %}
 
-                  <!-- Mobile only -->
-                <div class="menu__footer">
-                    acties
-                </div>
+                <!-- Mobile only -->				
+                <div class="menu__footer">acties</div>
+
                 <!-- End Main Menu -->
                 
                 <div class="header__actions">
 
                     {% if section.settings.header_currency %}
-                        <div class="header__currency currency">
-                            <div class="btn-group" id="form-currency">
-                    
+                        <div class="dropdown header__action">
                             <a id="dropdownCurrency" href="#currency" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" >
                                 <span class="selected-currency">{{ cart.currency.iso_code | upcase }}</span>
                             </a>
-                            <ul name="currencies" class="dropdown-menu" aria-labelledby="dropdownCurrency">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownCurrency">
                                 {%- for currency in shop.enabled_currencies -%}                                
                                     <li>
                                         <a href="{{ shop.url }}?currency={{ currency.iso_code }}"  class="currency-select dropdown-item {% if code == shop.currency %}item-selected{% endif %}">{{ currency.iso_code | upcase }}</a>
                                     </li>
                                 {% endfor %}
-                            </ul>
-                            </div>
+                            </ul>                          
                         </div>                   
                     {% endif %}
 
                     {% if section.settings.header_language %}
                         {%- if shop.published_locales.size > 1 -%}
                             {%- form 'localization' -%}
-                                <div class="dropdown">
+                                <div class="dropdown header__action">
                                     <a class="dropdown-toggle" href="#language role="button" id="dropdownLanguage" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ form.current_locale.iso_code | append: '.png' | asset_url }}" alt="USA Flag" class="dropdown-image"/>{{ form.current_locale.endonym_name }}
                                     </a>
@@ -120,18 +119,7 @@
                 </div>
             </div>
 
-            <div class="header__actions header__actions--mobile">
-
-                {% include 'header-cart'%}
-
-                <div class="menu-burger">
-                    <svg data-action="sidebar" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
-                        <line stroke="#222" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="4" y1="9" x2="28" y2="9"></line>
-                        <line stroke="#222" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="4" y1="16" x2="28" y2="16"></line>
-                        <line stroke="#222" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="4" y1="23" x2="28" y2="23"></line>
-                    </svg>
-                </div>
-            </div>
+            {% include 'header-cart'%}
         </div>
 
     </div>
