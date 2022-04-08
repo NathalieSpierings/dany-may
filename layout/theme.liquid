@@ -36,8 +36,38 @@
 
         {{ content_for_header }}
     </head>
-    <body>
-        {{ content_for_layout }}
+    <body class="custom-scrollbars">
+
+        <main class="page">
+
+            <header>
+                header
+            </header>
+
+            <div class="page__container">
+                <div class="page__content">
+                    <div class="content__container">
+                        <div class="content">
+                            {{ content_for_layout }}
+                        </div>
+
+                        <footer>footer</footer>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+
+        <div class='scrolltop'>
+            <div class='scroll'>
+                <span>{{ 'general.backToTop' | t }}</span>
+                <svg class="svg-icon">
+                    <use xlink:href="#svg-arrow-right-long"></use>
+                </svg>
+            </div>
+        </div>
+
 
         <!-- Scripts -->
         {{ 'jquery-3.6.0.min.js' | asset_url | script_tag }}   
