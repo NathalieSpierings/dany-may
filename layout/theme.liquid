@@ -35,7 +35,8 @@
         {{ 'danymay.css' | asset_url | stylesheet_tag }} 
 
         {{ content_for_header }}
-    </head>
+    {% render "rale-render" %}
+</head>
     <body class="custom-scrollbars">
 
         <main class="page">
