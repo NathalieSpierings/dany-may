@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       
+        {% if settings.favicon_enable %}
+            <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" />
+            <link rel="apple-touch-icon" href="{{ 'favicon.png' | asset_url }}" />
+        {% endif %}
+    </head>
+    <body>
+
+    </body>
+</html>
