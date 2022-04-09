@@ -1,5 +1,5 @@
 {
-  "settings_schema":{
+  "settings_schema": {
     "global": {
       "settings": {
         "image_padding": {
@@ -29,7 +29,7 @@
       }
     }
   },
-  "sections":{
+  "sections": {
     "header": {
     },
     "footer": {
