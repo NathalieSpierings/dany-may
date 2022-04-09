@@ -151,15 +151,17 @@
 
                 <p>
                     &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}
-
-                    {%- if section.settings.copyright != blank -%}
-                        {{- section.settings.copyright | escape -}}
-                    {%- endif -%}
+                  {%- if section.settings.copyright != blank -%}
+                  	{{- section.settings.copyright | escape -}} 
+                  {%- endif -%}
 
                 </p>
             </div>							
         </div>
-        <div class="footer__payment">
+      
+      
+      	{%- if section.settings.payment_enable -%}
+          <div class="footer__payment">
             <ul  role="list">									
                 {%- for type in shop.enabled_payment_types -%}
                     <li class="list-payment__item">
@@ -168,6 +170,10 @@
                 {%- endfor -%}						
             </ul>
         </div>
+        {%- endif -%}
+      
+      
+        
     </div>   
 </footer>
   
@@ -274,6 +280,39 @@
       "label": "t:sections.footer.settings.color_scheme.label"
     },
     {
+        "type": "text",
+        "id": "copyright",
+        "default": "| VAT 123456789",
+        "label": "t:sections.footer.settings.copyright.label"
+    },
+    {
+        "type": "text",
+        "id": "footer_bottom_text",
+        "default": "Alle prijzen die op de website worden getoond, zijn aanbevolen verkoopprijzen in Euro (€) inclusief btw.",
+        "label": "t:sections.footer.settings.announcement.label"
+    },
+  	{
+      "type": "header",
+      "content": "t:sections.footer.settings.payment_methods.content"
+    },  
+  	{
+      "type": "checkbox",
+      "id": "payment_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.payment_methods.label"
+    }, 
+   {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__2.content",
+      "info": "t:sections.footer.settings.header__2.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": false,
+      "label": "t:sections.footer.settings.show_social.label"
+    },
+    {
       "type": "header",
       "content": "t:sections.footer.settings.header__1.content",
       "info": "t:sections.footer.settings.header__1.info"
@@ -290,17 +329,7 @@
       "default": "Subscribe to our emails",
       "label": "t:sections.footer.settings.newsletter_heading.label"
     },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__2.content",
-      "info": "t:sections.footer.settings.header__2.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_social",
-      "default": false,
-      "label": "t:sections.footer.settings.show_social.label"
-    },
+    
     {
       "type": "header",
       "content": "t:sections.footer.settings.header__3.content",
@@ -322,37 +351,7 @@
       "id": "enable_language_selector",
       "default": true,
       "label": "t:sections.footer.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__7.content"
-    },
-    {
-      "type": "checkbox",
-      "id": "payment_enable",
-      "default": true,
-      "label": "t:sections.footer.settings.payment_enable.label"
-    },
-    {
-        "type": "header",
-        "content": "Text"
-    },
-    {
-        "type": "text",
-        "id": "footer_bottom_text",
-        "default": "Alle prijzen die op de website worden getoond, zijn aanbevolen verkoopprijzen in Euro (€) inclusief btw.",
-        "label": "Footer bottom text"
-    },
-    {
-        "type": "header",
-        "content": "Copyright"
-    },
-    {
-        "type": "text",
-        "id": "copyright",
-        "default": "| VAT 123456789",
-        "label": "Copyright text"
-    },
+    }, 
     {
         "type": "header",
         "content": "Disclaimers"

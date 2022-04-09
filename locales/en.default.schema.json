@@ -1,5 +1,5 @@
 {
-  "settings_schema":{
+  "settings_schema": {
     "global": {
       "settings": {
         "image_padding": {
@@ -29,7 +29,7 @@
       }
     }
   },
-  "sections":{
+  "sections": {
     "header": {
     },
     "footer": {
@@ -70,7 +70,14 @@
           },
           "label": "Color scheme"
         },
-        "payment_enable": {
+        "copyright": {
+          "label": "Copyright"
+        },
+        "announcement": {
+          "label": "Announcement"
+        },
+        "payment_methods": {
+          "content": "Payment methods",
           "label": "Show payment icons"
         },
         "newsletter_enable": {
@@ -107,9 +114,6 @@
         },
         "enable_language_selector": {
           "label": "Enable language selector"
-        },
-        "header__7": {
-          "content": "Payment methods"
         },
         "margin_top": {
           "label": "Top margin"
