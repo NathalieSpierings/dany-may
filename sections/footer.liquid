@@ -150,7 +150,10 @@
                 {%- endif -%}
 
                 <p>
-                    &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}{%- if section.settings.copyright != blank -%}{{- section.settings.copyright | escape -}} {%- endif -%}
+                    &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}
+                  {%- if section.settings.copyright != blank -%}
+                  	{{- section.settings.copyright | escape -}} 
+                  {%- endif -%}
 
                 </p>
             </div>							
