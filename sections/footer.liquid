@@ -158,7 +158,10 @@
                 </p>
             </div>							
         </div>
-        <div class="footer__payment">
+      
+      
+      	{%- if section.settings.payment_enable -%}
+          <div class="footer__payment">
             <ul  role="list">									
                 {%- for type in shop.enabled_payment_types -%}
                     <li class="list-payment__item">
@@ -167,6 +170,10 @@
                 {%- endfor -%}						
             </ul>
         </div>
+        {%- endif -%}
+      
+      
+        
     </div>   
 </footer>
   
