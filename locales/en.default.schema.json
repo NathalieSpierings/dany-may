@@ -70,6 +70,9 @@
           },
           "label": "Color scheme"
         },
+        "payment_methods": {
+          "content": "Payment methods"
+        },
         "payment_enable": {
           "label": "Show payment icons"
         },
@@ -107,9 +110,6 @@
         },
         "enable_language_selector": {
           "label": "Enable language selector"
-        },
-        "header__7": {
-          "content": "Payment methods"
         },
         "margin_top": {
           "label": "Top margin"
