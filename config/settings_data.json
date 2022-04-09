@@ -88,8 +88,8 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/logo.png",
-              "image_width": 140,
-              "alignment": ""
+              "image_width": 100,
+              "alignment": "right"
             }
           },
           "footer-0": {
