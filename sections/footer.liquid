@@ -41,7 +41,7 @@
 
                         {%- if block.settings.image != blank -%}
                             {%- assign image_size = block.settings.image_width | append: 'x' -%}
-                            <div class="footer__block__content" {{ block.settings.alignment }}>
+                            <div class="footer__block__content {{ block.settings.alignment }}">
                                 <img
                                 srcset= "{{ block.settings.image | img_url: image_size }}, {{ block.settings.image | img_url: image_size, scale: 2 }} 2x"
                                 src="{{ block.settings.image | image_url: width: 400 }}"

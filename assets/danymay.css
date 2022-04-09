@@ -1432,6 +1432,30 @@ header.open .header__overlay {
   padding: 3rem 0;
 }
 
+.footer__block__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer__block.left .footer__block__content {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.footer__block.center .footer__block__content {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer__block.right .footer__block__content {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .footer__block__heading {
   font-family: var(--font-stack-second);
   letter-spacing: .1em;

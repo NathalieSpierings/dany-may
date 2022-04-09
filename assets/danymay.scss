@@ -905,6 +905,26 @@ header {
 	&__block{	
 		padding:3rem 0;
 		
+		&__content{
+			display:flex;
+		}
+		
+		&.left{
+			.footer__block__content{
+				justify-content:flex-start;
+			}
+		}
+		&.center{
+			.footer__block__content{
+				justify-content:center;
+			}
+		}
+		&.right{
+			.footer__block__content{
+				justify-content:flex-end;
+			}
+		}
+		
 		&__heading{
 			font-family:var(--font-stack-second);
 			letter-spacing: .1em;

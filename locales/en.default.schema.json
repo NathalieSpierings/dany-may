@@ -70,6 +70,9 @@
           },
           "label": "Color scheme"
         },
+        "payment_enable": {
+          "label": "Show payment icons"
+        },
         "newsletter_enable": {
           "label": "Show email signup"
         },
@@ -107,9 +110,6 @@
         },
         "header__7": {
           "content": "Payment methods"
-        },
-        "payment_enable": {
-          "label": "Show payment icons"
         },
         "margin_top": {
           "label": "Top margin"
