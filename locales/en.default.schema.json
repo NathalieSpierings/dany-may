@@ -70,10 +70,14 @@
           },
           "label": "Color scheme"
         },
-        "payment_methods": {
-          "content": "Payment methods"
+        "copyright": {
+          "label": "Copyright"
         },
-        "payment_enable": {
+        "announcement": {
+          "label": "Announcement"
+        },
+        "payment_methods": {
+          "content": "Payment methods",
           "label": "Show payment icons"
         },
         "newsletter_enable": {
